@@ -1,24 +1,35 @@
-function getInitials (nomeCompleto) {
+function getInitials(nomeCompleto) {
     //con split divido la stringa in piu pezzi(ogni volta che trova uno spazio) , restituendo un array
     // quindi se passo Giuseppe Mele diventerà ["Giuseppe","Mele"]; 
-return nomeCompleto.split(' ').map(s => s.charAt(0)).join('').toUpperCase(); 
+    return nomeCompleto.split(' ').map(s => s.charAt(0)).join('').toUpperCase();
 }
-
 
 
 function createSlug(str) {
-    return str.toLowerCase().replaceAll(" ", "-"); 
+    return str.toLowerCase().replaceAll(" ", "-");
 }
 
-function average (arrofNumbers) {
+function average(arrofNumbers) {
 
     arrofNumbers.forEach(num => {
-        if(isNaN(num)) 
-        throw new Error("Average vuole solo numeri"); 
-    
+        if (isNaN(num))
+            throw new Error("Average vuole solo numeri");
     });
-    
-    const sum = arrofNumbers.reduce((acc,num) => acc + num, 0);
+    const sum = arrofNumbers.reduce((acc, num) => acc + num, 0);
     return sum / arrofNumbers.length
 }
-module.exports = {getInitials, createSlug, average}; 
+
+
+function isPalindrome(str) {
+    // const normalizedStr = str.toLowerCase(); 
+    // const reversedStr = normalizedStr.split('').reverse().join('');
+    // return normalizedStr === reversedStr; 
+    const caratteriInversi = [];
+    for (let i = 0; i < str.length; ++i) {
+        const carattere = str[i];
+        caratteriInversi.unshift(carattere);
+    }
+    return str === caratteriInversi.join("");
+}
+
+module.exports = { getInitials, createSlug, average, isPalindrome }; 
