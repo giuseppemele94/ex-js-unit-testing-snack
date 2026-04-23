@@ -9,4 +9,15 @@ function createSlug (str) {
     return str.toLowerCase(); 
 }
 
-module.exports = {getInitials, createSlug}; 
+function average (arrofNumbers) {
+
+    arrofNumbers.forEach(num => {
+        if(isNaN(num)) 
+        throw new Error("Average vuole solo numeri"); 
+    
+    });
+    
+    const sum = arrofNumbers.reduce((acc,num) => acc + num, 0);
+    return sum / arrofNumbers.length
+}
+module.exports = {getInitials, createSlug, average}; 
