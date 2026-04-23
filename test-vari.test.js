@@ -1,4 +1,12 @@
-const {getInitials, createSlug, average, isPalindrome, findPostById} = require ("./test-vari")
+const {
+    getInitials, 
+    createSlug, 
+    average, 
+    isPalindrome, 
+    findPostById,   
+    addPost,
+    removePost
+} = require ("./test-vari")
 
 describe('Manipolazione stringhe ', () => {
 
@@ -96,10 +104,33 @@ Creare uno o più test aggiuntivi che controllino che la struttura dati passati 
 (ogni post ha le proprietà id, title e slug, viene passato un id numerico).
 */
 
-const posts = [
+let posts ; 
+
+//prima di ogni test , riempio l'array
+beforeEach(() => {
+posts = [
   { id: 1, title: "Primo post", slug: "primo-post" },
   { id: 2, title: "Secondo post", slug: "secondo-post" },
   { id: 3, title: "Terzo post", slug: "terzo-post" }
 ];
+})
 
+//dopo ogni testo lo resetto
+afterEach(() => {
+    posts = [];
+})
 
+/*
+ SNACK-8 BONUS
+Creare due test che verifichino le seguenti descrizioni:
+👉 "Dopo aver aggiunto un post con la funzione addPost, l'array posts deve contenere un elemento in più."
+👉 "Dopo aver rimosso un post con la funzione removePost, l'array posts deve contenere un elemento in meno."* */
+test('Dopo aver aggiunto un post con la funzione "addPost" , l array posts deve contenere un elemento in più', () => {
+addPost(posts, {id: 4, title: "Quarto post", slug: "quarto-post"});
+expect(posts).toHaveLength(4); 
+})
+
+test('Dopo aver rimosso un post con la funzione removePost, larray posts deve contenere un elemento in meno.', () => {
+    removePost(posts, 3); 
+    expect(posts).toHaveLength(2); 
+});

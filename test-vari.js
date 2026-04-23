@@ -58,9 +58,20 @@ function findPostById(posts,id) {
 
 }
 
+function addPost(posts,newPost) {
+    return posts.push(newPost); 
+}
+
+function  removePost(posts,id) {
+    const postIndex = posts.findIndex(p => p.id === id); 
+    posts.splice(postIndex, 1);
+}
+
 module.exports = { 
     getInitials,
      createSlug, 
      average, 
      isPalindrome,
-    findPostById }; 
+    findPostById,
+addPost,
+removePost}; 
