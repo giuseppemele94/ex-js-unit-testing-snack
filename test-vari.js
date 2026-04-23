@@ -4,9 +4,10 @@ function getInitials (nomeCompleto) {
 return nomeCompleto.split(' ').map(s => s.charAt(0)).join('').toUpperCase(); 
 }
 
-//restituisce una stringa in minuscolo
-function createSlug (str) {
-    return str.toLowerCase(); 
+
+
+function createSlug(str) {
+    return str.toLowerCase().replaceAll(" ", "-"); 
 }
 
 function average (arrofNumbers) {

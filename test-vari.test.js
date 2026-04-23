@@ -16,7 +16,7 @@ Creare un test che verifichi la seguente descrizione:
 */
 test('La funzione "createSlug" restituisce una stringa in lowercase', () => {
     expect(createSlug('GiUsEpPe')).toBe('giuseppe'); 
-    expect(createSlug('GiUsEpPe Mele')).toBe('giuseppe mele'); 
+    expect(createSlug('GiUsEpPe Mele')).toBe('giuseppe-mele'); 
 })
 
 /*SNACK 3
@@ -29,4 +29,15 @@ test('La funzione "average" calcola la media aritmetica di un array di numeri', 
     expect(average([1,2])).toBe(1.5); 
     expect(() => average([10,"ciao"])).toThrow(); 
 })
+
+/* SNACK 4
+Creare un test che verifichi la seguente descrizione:
+👉 "La funzione createSlug sostituisce gli spazi con -."
+📌 Esempi:
+createSlug("Questo è un test") → "questo-e-un-test"
+* */
+test('La funzione "createSlug" sostituisce gli spazi con - ', () => {
+    expect(createSlug('Questo e un test')).toBe('questo-e-un-test'); 
+})
+
 
