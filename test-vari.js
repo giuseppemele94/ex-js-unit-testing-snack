@@ -4,4 +4,9 @@ function getInitials (nomeCompleto) {
 return nomeCompleto.split(' ').map(s => s.charAt(0)).join('').toUpperCase(); 
 }
 
-module.exports = {getInitials}; 
+//restituisce una stringa in minuscolo
+function createSlug (str) {
+    return str.toLowerCase(); 
+}
+
+module.exports = {getInitials, createSlug}; 
