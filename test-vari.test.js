@@ -134,3 +134,13 @@ test('Dopo aver rimosso un post con la funzione removePost, larray posts deve co
     removePost(posts, 3); 
     expect(posts).toHaveLength(2); 
 });
+
+/* SNACK-9 BONUS 
+Creare un test che verifichi la seguente descrizione:
+👉 "Se si tenta di aggiungere un post con un id o uno slug già esistente, la funzione addPost deve lanciare un errore."
+.* */
+
+test('Se si tenta di aggiungere un post con un id o una slug gia esistente, la funzione addPost deve lanciare un errore', () => {
+    
+    expect(() => addPost(posts,{ id: 2, title: "Secondo post prova", slug: "secondo-post-prova" })).toThrow('id gia esistente');
+})

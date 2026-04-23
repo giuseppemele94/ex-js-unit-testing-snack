@@ -59,6 +59,13 @@ function findPostById(posts,id) {
 }
 
 function addPost(posts,newPost) {
+
+    const ids = posts.map(p => p.id);
+
+    if(ids.includes(newPost.id)){
+    throw new Error('id gia esistente'); 
+    }
+    
     return posts.push(newPost); 
 }
 
