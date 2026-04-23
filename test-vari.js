@@ -35,8 +35,32 @@ function isPalindrome(str) {
     return str === caratteriInversi.join("");
 }
 
+function findPostById(posts,id) {
+
+    if (typeof id !== "number" || Number.isNaN(id)) {
+        throw new Error("L'id deve essere numerico");
+    }
+
+
+    posts.forEach(p => {
+        if (
+            typeof p !== "object" ||
+            p === null ||
+            p.id === undefined ||
+            p.title === undefined ||
+            p.slug === undefined
+        ) {
+            throw new Error("Ogni post deve avere id, title e slug");
+        }
+    });
+
+    return posts.find(p => p.id === id);
+
+}
+
 module.exports = { 
     getInitials,
      createSlug, 
      average, 
-     isPalindrome }; 
+     isPalindrome,
+    findPostById }; 
